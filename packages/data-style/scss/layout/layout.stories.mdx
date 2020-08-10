@@ -1,0 +1,64 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { radios } from '@storybook/addon-knobs';
+import './layout.scss';
+
+<Meta
+  title="Data Style/Layout"
+/>
+
+# Layout
+
+### data-uz-layout-fill
+
+赋予目标 100% 的宽高
+
+<Preview>
+  <Story name="fill">
+    <div
+      style={{
+        height: 200,
+        width: 400,
+        background: '#64D3D6',
+      }}
+    >
+      <div data-uz-layout-fill />
+    </div>
+  </Story>
+</Preview>
+
+
+### data-uz-scroll
+
+赋予目标指定的滚动方式
+
+
+<Preview>
+  <Story name="scroll">
+    <div
+      style={{
+        height: 200,
+        width: 400,
+        background: '#64D3D6',
+      }}
+      data-uz-scroll={
+        radios(
+          'data-uz-scroll=',
+          {
+            '(empty)': '',
+            y: 'y',
+            x: 'x',
+            none: 'none',
+          },
+          'y',
+        )
+      }
+    >
+      <div
+        style={{
+          height: 400,
+          width: 800,
+        }}
+      />
+    </div>
+  </Story>
+</Preview>

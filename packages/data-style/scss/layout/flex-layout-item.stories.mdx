@@ -1,0 +1,259 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { radios, select, number } from '@storybook/addon-knobs';
+import './flex-layout.scss';
+
+<Meta
+  title="Data Style/Flex Layout/Item"
+/>
+
+# Flex layout
+
+## Container
+
+为元素设置 flex 子项目样式
+
+
+### data-uz-flex-item
+
+使目标元素成为 flex 子项目。
+
+其值有 4 种类型，分别为：
+* 关键词
+* 整数型
+* 百分比
+* 绝对值
+
+后面类型的样式权重高于前面类型。
+
+
+### data-uz-flex-item=关键词
+
+使用关键词可以快速设置常见的使用情景
+
+<Preview>
+  <Story name="item (keyword)">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+    >
+      <div
+        style={{
+          background: `rgb(100, 210, 170)`,
+          flexBasis: 24,
+          margin: 4,
+        }}
+      >
+        0
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 185)`,
+          margin: 4,
+        }}
+        data-uz-flex-item={
+          radios(
+            'data-uz-flex-item=',
+            {
+              'grow': 'grow',
+              'initial': 'initial',
+              'auto': 'auto',
+              'none': 'none',
+              'noshrink': 'noshrink',
+              'nogrow': 'nogrow',
+            },
+            'grow',
+          )
+        }
+      >
+        1
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 200)`,
+          flexBasis: 24,
+          margin: 4,
+        }}
+      >
+        2
+      </div>
+    </div>
+  </Story>
+</Preview>
+
+
+
+### data-uz-flex-item=整数型
+
+基本等同于 `flex-grow: n;`。
+
+<Preview>
+  <Story name="item (int)">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+    >
+      <div
+        style={{
+          background: `rgb(100, 210, 170)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="1"
+      >
+        0
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 185)`,
+          margin: 4,
+        }}
+        data-uz-flex-item={
+          number(
+            'data-uz-flex-item=',
+            2,
+            {
+              range: true,
+              min: 0,
+              max: 100,
+              step: 1,
+            }
+          )
+        }
+      >
+        1
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 200)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="1"
+      >
+        2
+      </div>
+    </div>
+  </Story>
+</Preview>
+
+
+
+### data-uz-flex-item=百分比
+
+基本等同于 `flex-basis: n * 1%;`。
+
+<Preview>
+  <Story name="item (persent)">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+    >
+      <div
+        style={{
+          background: `rgb(100, 210, 170)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="20%"
+      >
+        0
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 185)`,
+          margin: 4,
+        }}
+        data-uz-flex-item={
+          `${number(
+            'data-uz-flex-item=',
+            20,
+            {
+              range: true,
+              min: 0,
+              max: 100,
+              step: 1,
+            }
+          )}%`
+        }
+      >
+        1
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 200)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="20%"
+      >
+        2
+      </div>
+    </div>
+  </Story>
+</Preview>
+
+
+### data-uz-flex-item=绝对值
+
+基本等同于 `flex-basis: n * 1px;`。
+
+<Preview>
+  <Story name="item (absolute)">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+    >
+      <div
+        style={{
+          background: `rgb(100, 210, 170)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="100px"
+      >
+        0
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 185)`,
+          margin: 4,
+        }}
+        data-uz-flex-item={
+          `${number(
+            'data-uz-flex-item=',
+            100,
+            {
+              range: true,
+              min: 0,
+              max: 1000,
+              step: 1,
+            }
+          )}px`
+        }
+      >
+        1
+      </div>
+      <div
+        style={{
+          background: `rgb(100, 210, 200)`,
+          margin: 4,
+        }}
+        data-uz-flex-item="100px"
+      >
+        2
+      </div>
+    </div>
+  </Story>
+</Preview>
+

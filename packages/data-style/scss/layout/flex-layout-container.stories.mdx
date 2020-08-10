@@ -1,0 +1,173 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { radios, select } from '@storybook/addon-knobs';
+import './flex-layout.scss';
+
+<Meta
+  title="Data Style/Flex Layout/Container"
+/>
+
+# Flex layout
+
+## Container
+
+为元素设置 flex 容器样式
+
+
+### data-uz-flex-box
+
+使目标元素成为 flex 容器，并设定 flex 主轴方向。
+
+<Preview>
+  <Story name="flex-box">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box={
+        radios(
+          'data-uz-flex-box=',
+          {
+            'row': 'row',
+            'row-reverse': 'row-reverse',
+            'column': 'column',
+            'column-reverse': 'column-reverse',
+          },
+          'row',
+        )
+      }
+    >
+      {(
+        new Array(8)
+        .fill(null)
+        .map((value, index) => (
+          <div
+            key={index}
+            style={{
+              background: `rgb(100, 210, ${170 + index * 10}`,
+              flexBasis: 24,
+              margin: 4,
+            }}
+          >
+            {index}
+          </div>
+        ))
+      )}
+    </div>
+  </Story>
+</Preview>
+
+
+### data-uz-flex-wrap
+
+当目标元素是 flex 容器时，为其设定 wrap 方式。
+
+<Preview>
+  <Story name="flex-wrap">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+      data-uz-flex-wrap={
+        radios(
+          'data-uz-flex-wrap=',
+          {
+            'wrap': 'wrap',
+            'nowrap': 'nowrap',
+          },
+          'wrap',
+        )
+      }
+    >
+      {(
+        new Array(8)
+        .fill(null)
+        .map((value, index) => (
+          <div
+            key={index}
+            style={{
+              background: `rgb(100, 210, ${170 + index * 10}`,
+              height: 60,
+              width: 60,
+              margin: 4,
+            }}
+          >
+            {index}
+          </div>
+        ))
+      )}
+    </div>
+  </Story>
+</Preview>
+
+
+### data-uz-flex-align
+
+当目标元素是 flex 容器时，为其子项目设定对齐方式。
+
+<Preview>
+  <Story name="flex-align">
+    <div
+      style={{
+        height: 300,
+        width: 400,
+        border: 'solid 1px #64D3D6',
+      }}
+      data-uz-flex-box="row"
+      data-uz-flex-align={
+        select(
+          'data-uz-flex-align=',
+          [
+            'start',
+            'start start',
+            'start center',
+            'start end',
+            'start stretch',
+            'center',
+            'center start',
+            'center center',
+            'center end',
+            'center stretch',
+            'end',
+            'end start',
+            'end center',
+            'end end',
+            'end stretch',
+            'space-around',
+            'space-around start',
+            'space-around center',
+            'space-around end',
+            'space-around stretch',
+            'space-between',
+            'space-between start',
+            'space-between center',
+            'space-between end',
+            'space-between stretch',
+          ],
+          'center center',
+        )
+      }
+    >
+      {(
+        new Array(3)
+        .fill(null)
+        .map((value, index) => (
+          <div
+            key={index}
+            style={{
+              background: `rgb(100, 210, ${170 + index * 10}`,
+              flexBasis: 24,
+              margin: 4,
+            }}
+          >
+            {index}
+          </div>
+        ))
+      )}
+    </div>
+  </Story>
+</Preview>

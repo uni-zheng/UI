@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "@uniz/data-style",
+  "version": "0.0.1",
+  "description": "",
+  "main": "scss/index.scss",
+  "scripts": {
+    "start:prod": "gulp --env.build=prod",
+    "build:prod": "gulp build --env.build=prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.1.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-json-editor": "^2.5.4",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "lodash": "^4.17.19",
+    "sass": "^1.26.10"
+  }
+}

@@ -1,0 +1,257 @@
+@mixin flex-box($prefix:'data') {
+  [#{$prefix}-flex-box] {
+    display: flex;
+  }
+
+  [#{$prefix}-flex-box="row"] {
+    flex-direction: row;
+  }
+
+  [#{$prefix}-flex-box="row-reverse"] {
+    flex-direction: row-reverse;
+  }
+
+  [#{$prefix}-flex-box="column"] {
+    flex-direction: column;
+  }
+
+  [#{$prefix}-flex-box="column-reverse"] {
+    flex-direction: column-reverse;
+  }
+
+  [#{$prefix}-flex-wrap="wrap"] {
+    flex-wrap: wrap;
+  }
+
+  [#{$prefix}-flex-wrap="nowrap"] {
+    flex-wrap: nowrap;
+  }
+
+  [#{$prefix}-flex-align],
+  [#{$prefix}-flex-align="start stretch"] {
+    display: flex;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+  }
+
+  [#{$prefix}-flex-align="start"],
+  [#{$prefix}-flex-align="start start"],
+  [#{$prefix}-flex-align="start center"],
+  [#{$prefix}-flex-align="start end"],
+  [#{$prefix}-flex-align="start stretch"] {
+    justify-content: flex-start;
+  }
+
+  [#{$prefix}-flex-align="center"],
+  [#{$prefix}-flex-align="center start"],
+  [#{$prefix}-flex-align="center center"],
+  [#{$prefix}-flex-align="center end"],
+  [#{$prefix}-flex-align="center stretch"] {
+    justify-content: center;
+  }
+
+  [#{$prefix}-flex-align="end"],
+  [#{$prefix}-flex-align="end center"],
+  [#{$prefix}-flex-align="end start"],
+  [#{$prefix}-flex-align="end end"],
+  [#{$prefix}-flex-align="end stretch"] {
+    justify-content: flex-end;
+  }
+
+  [#{$prefix}-flex-align="space-around"],
+  [#{$prefix}-flex-align="space-around center"],
+  [#{$prefix}-flex-align="space-around start"],
+  [#{$prefix}-flex-align="space-around end"],
+  [#{$prefix}-flex-align="space-around stretch"] {
+    justify-content: space-around;
+  }
+
+  [#{$prefix}-flex-align="space-between"],
+  [#{$prefix}-flex-align="space-between center"],
+  [#{$prefix}-flex-align="space-between start"],
+  [#{$prefix}-flex-align="space-between end"],
+  [#{$prefix}-flex-align="space-between stretch"] {
+    justify-content: space-between;
+  }
+
+  [#{$prefix}-flex-align="start start"],
+  [#{$prefix}-flex-align="center start"],
+  [#{$prefix}-flex-align="end start"],
+  [#{$prefix}-flex-align="space-between start"],
+  [#{$prefix}-flex-align="space-around start"] {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  [#{$prefix}-flex-align="start center"],
+  [#{$prefix}-flex-align="center center"],
+  [#{$prefix}-flex-align="end center"],
+  [#{$prefix}-flex-align="space-between center"],
+  [#{$prefix}-flex-align="space-around center"] {
+    align-items: center;
+    align-content: center;
+    max-width: 100%;
+
+    & > * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  [#{$prefix}-flex-align="start end"],
+  [#{$prefix}-flex-align="center end"],
+  [#{$prefix}-flex-align="end end"],
+  [#{$prefix}-flex-align="space-between end"],
+  [#{$prefix}-flex-align="space-around end"] {
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+
+  [#{$prefix}-flex-align="start stretch"],
+  [#{$prefix}-flex-align="center stretch"],
+  [#{$prefix}-flex-align="end stretch"],
+  [#{$prefix}-flex-align="space-between stretch"],
+  [#{$prefix}-flex-align="space-around stretch"] {
+    align-items: stretch;
+    align-content: stretch;
+  }
+}
+
+@mixin flex-item-persent-mixin($prefix:'data', $num) {
+  [#{$prefix}-flex-item="#{$num}%"],
+  [#{$prefix}-flex-box="row"] > [data-cc-flex-item="#{$num}%"],
+  [#{$prefix}-flex-box="row-reverse"] > [data-cc-flex-item="#{$num}%"] {
+    flex: 0 0 $num * 1%;
+    max-width: $num * 1%;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-box="column"] > [data-cc-flex-item="#{$num}%"],
+  [#{$prefix}-flex-box="column-reverse"] > [data-cc-flex-item="#{$num}%"] {
+    flex: 0 0 $num * 1%;
+    max-width: 100%;
+    max-height: $num * 1%;
+    box-sizing: border-box;
+  }
+}
+
+@mixin flex-item-absolute-mixin($prefix:'data', $num) {
+  [#{$prefix}-flex-item="#{$num}px"],
+  [#{$prefix}-flex-box="row"] > [data-cc-flex-item="#{$num}px"],
+  [#{$prefix}-flex-box="row-reverse"] > [data-cc-flex-item="#{$num}px"] {
+    flex: 0 0 $num * 1px;
+    max-width: $num * 1px;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-box="column"] > [data-cc-flex-item="#{$num}px"],
+  [#{$prefix}-flex-box="column-reverse"] > [data-cc-flex-item="#{$num}px"] {
+    flex: 0 0 $num * 1px;
+    max-width: 100%;
+    max-height: $num * 1px;
+    box-sizing: border-box;
+  }
+}
+
+@mixin flex-item-int-mixin($prefix:'data', $num) {
+  [#{$prefix}-flex-item="#{$num}"],
+  [#{$prefix}-flex-box="row"] > [data-cc-flex-item="#{$num}"],
+  [#{$prefix}-flex-box="row-reverse"] > [data-cc-flex-item="#{$num}"] {
+    flex: $num 1 auto;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-box="column"] > [data-cc-flex-item="#{$num}"],
+  [#{$prefix}-flex-box="column-reverse"] > [data-cc-flex-item="#{$num}"] {
+    flex: $num 1 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@mixin flex-layout {
+
+  // data-cc-flex-box
+  // data-cc-flex-wrap
+  // data-cc-flex-nowrap
+  // data-cc-flex-align
+  // data-cc-flex-item="Keyword"
+  // data-cc-flex-item="Int"       比例 10
+  // data-cc-flex-item="Absolute"  绝对值 10px
+  // data-cc-flex-item="Percent"   百分比 10%
+
+
+  $prefix: 'data-uz';
+
+  // ------ box ------
+  @include flex-box($prefix);
+
+  // ------ item ------
+  [#{$prefix}-flex-item] {
+    flex: 1;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="grow"] {
+    flex: 1 1 100%;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="initial"] {
+    flex: 0 1 auto;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="auto"] {
+    flex: 1 1 auto;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="none"] {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="noshrink"] {
+    flex: 1 0 auto;
+    box-sizing: border-box;
+  }
+
+  [#{$prefix}-flex-item="nogrow"] {
+    flex: 0 1 auto;
+    box-sizing: border-box;
+  }
+
+  // 比例 mixin
+  @for $i from 0 through 100 {
+    @include flex-item-int-mixin($prefix, $i);
+  }
+
+  // 百分比 mixin
+
+  // 0% - 100%
+  @for $i from 0 through 100 {
+    @include flex-item-persent-mixin($prefix, $i);
+  }
+
+  // 33.3% 66.6%
+  @include flex-item-persent-mixin($prefix, 33.3);
+  @include flex-item-persent-mixin($prefix, 66.6);
+
+  // 绝对值 mixin
+
+
+  // 0 - 1000px
+  @for $i from 0 through 100 {
+    @include flex-item-absolute-mixin($prefix, $i);
+  }
+  // ------ item over ------
+}
+
+* {
+  @include flex-layout();
+}
