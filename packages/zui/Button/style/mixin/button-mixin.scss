@@ -1,0 +1,141 @@
+@use "sass:color";
+@use "sass:meta";
+@use "sass:map";
+
+@mixin button(
+  $args...
+) {
+
+  $argMap: map.merge((
+    prefix: '',
+    h-padding: 16px,
+    min-width: 100px,
+    height: 34px,
+    border-radius: 8px,
+    font-size: 14px,
+    // normal
+    border-width: 1px,
+    border-color: #fc6622,
+    background: #fc6622,
+    color: white,
+    // active
+    border-width-active: 1px,
+    border-color-active: #fc6622,
+    background-active: #fc6622,
+    color-active: white,
+    // hover
+    border-width-hover: 1px,
+    border-color-hover: #fc6622,
+    background-hover: #fc6622,
+    color-hover: white,
+    // disable
+    border-width-disable: 1px,
+    border-color-disable: #fc6622,
+    background-disable: #fc6622,
+    color-disable: white,
+    // effects
+    sibling-gutter: 8px,
+  ), meta.keywords($args));
+
+  $prefix: map.get($argMap, prefix);
+  $h-padding: map.get($argMap, h-padding);
+  $min-width: map.get($argMap, min-width);
+  $height: map.get($argMap, height);
+  $border-radius: map.get($argMap, border-radius);
+  $font-size: map.get($argMap, font-size);
+
+  // normal
+  $border-width: map.get($argMap, border-width);
+  $border-color: map.get($argMap, border-color);
+  $background: map.get($argMap, background);
+  $color: map.get($argMap, color);
+
+  // active
+  $border-width-active: map.get($argMap, border-width-active);
+  $border-color-active: map.get($argMap, border-color-active);
+  $background-active: map.get($argMap, background-active);
+  $color-active: map.get($argMap, color-active);
+
+  // hover
+  $border-width-hover: map.get($argMap, border-width-hover);
+  $border-color-hover: map.get($argMap, border-color-hover);
+  $background-hover: map.get($argMap, background-hover);
+  $color-hover: map.get($argMap, color-hover);
+
+  // disable
+  $border-width-disable: map.get($argMap, border-width-disable);
+  $border-color-disable: map.get($argMap, border-color-disable);
+  $background-disable: map.get($argMap, background-disable);
+  $color-disable: map.get($argMap, color-disable);
+
+  // effects
+  $sibling-gutter: map.get($argMap, sibling-gutter);
+
+  @if $prefix != '' {
+    $prefix: '#{$prefix}-'
+  }
+
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  padding: 0 $h-padding;
+  min-width: $min-width;
+  height: $height;
+  background-color: $background;
+  border-radius: $border-radius;
+  color: $color;
+  font-size: $font-size;
+  cursor: pointer;
+  font-weight: normal;
+  outline: none;
+  border: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $border-radius;
+    border: solid $border-width $border-color;
+    pointer-events: none;
+  }
+
+  &:focus,
+  &:hover {
+    background: $background-hover;
+
+    &::before {
+      border-width: $border-width-hover;
+      border-color: $border-color-hover;
+    }
+  }
+
+  &:active {
+    background: $background-active;
+
+    &::before {
+      border-width: $border-width-active;
+      border-color: $border-color-active;
+    }
+  }
+
+  &[disabled],
+  &.#{$prefix}disabled {
+    background: $background-disable;
+    color: $color-disable;
+    cursor: not-allowed;
+
+    &::before {
+      border-width: $border-width-disable;
+      border-color: $border-color-disable;
+    }
+  }
+
+  & + & {
+    margin-left: $sibling-gutter;
+  }
+}

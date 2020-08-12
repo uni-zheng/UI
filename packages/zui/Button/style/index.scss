@@ -1,0 +1,98 @@
+@use "../../styles/var-mixin" as *;
+@use "./button-css-vars";
+@use "mixin/base-button-mixin";
+
+.zui-button {
+  @include base-button-mixin.base-button(
+    $prefix: 'zui-button',
+    $h-padding: get-var(button-horizontal-padding),
+    $min-width: get-var(button-min-width),
+    $height: get-var(button-height),
+    $border-radius: get-var(button-border-radius),
+    $font-size: get-var(button-font-size),
+
+    $background: get-var(button-background),
+    $color: get-var(button-color),
+
+    $background-active: get-var(button-background-active),
+    $color-active: get-var(button-color-active),
+
+    $background-hover: get-var(button-background-hover),
+    $color-hover: get-var(button-color-hover),
+
+    $background-disable: get-var(button-background-disable),
+    $color-disable: get-var(button-color-disable),
+  );
+}
+
+.zui-button.zui-button-color-success {
+  @include base-button-mixin.base-button(
+    $prefix: 'zui-button',
+    $h-padding: get-var(button-horizontal-padding),
+    $min-width: get-var(button-min-width),
+    $height: get-var(button-height),
+    $border-radius: get-var(button-border-radius),
+    $font-size: get-var(button-font-size),
+
+    $background: get-var(button-primary-background),
+    $color: get-var(button-primary-color),
+
+    $background-active: get-var(button-primary-background-active),
+    $color-active: get-var(button-primary-color-active),
+
+    $background-hover: get-var(button-primary-background-hover),
+    $color-hover: get-var(button-primary-color-hover),
+
+    $background-disable: get-var(button-primary-background-disable),
+    $color-disable: get-var(button-primary-color-disable),
+  )
+}
+
+
+.zui-button.zui-button-color-warning {
+  @include base-button-mixin.base-button(
+    $prefix: 'zui-button',
+    $h-padding: get-var(button-horizontal-padding),
+    $min-width: get-var(button-min-width),
+    $height: get-var(button-height),
+    $border-radius: get-var(button-border-radius),
+    $font-size: get-var(button-font-size),
+
+    $background: get-var(button-warning-background),
+    $color: get-var(button-warning-color),
+
+    $background-active: get-var(button-warning-background-active),
+    $color-active: get-var(button-warning-color-active),
+
+    $background-hover: get-var(button-warning-background-hover),
+    $color-hover: get-var(button-warning-color-hover),
+
+    $background-disable: get-var(button-warning-background-disable),
+    $color-disable: get-var(button-warning-color-disable),
+  )
+}
+
+
+.zui-button.zui-button-color-danger {
+  @include base-button-mixin.base-button(
+    $prefix: 'zui-button',
+    $h-padding: get-var(button-horizontal-padding),
+    $min-width: get-var(button-min-width),
+    $height: get-var(button-height),
+    $border-radius: get-var(button-border-radius),
+    $font-size: get-var(button-font-size),
+
+    $background: get-var(button-danger-background),
+    $color: get-var(button-danger-color),
+
+    $background-active: get-var(button-danger-background-active),
+    $color-active: get-var(button-danger-color-active),
+
+    $background-hover: get-var(button-danger-background-hover),
+    $color-hover: get-var(button-danger-color-hover),
+
+    $background-disable: get-var(button-danger-background-disable),
+    $color-disable: get-var(button-danger-color-disable),
+  )
+}
+

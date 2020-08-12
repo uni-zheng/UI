@@ -1,0 +1,65 @@
+@use "sass:color";
+@use "../../styles/var-mixin" as *;
+
+:root {
+  // ████████ 基础按钮 ████████
+  #{set-var(button-horizontal-padding)}: 16px;
+  #{set-var(button-min-width)}: 100px;
+  #{set-var(button-height)}: 34px;
+  #{set-var(button-border-radius)}: 4px;
+  #{set-var(button-border-width)}: 0;
+  #{set-var(button-font-size)}: 14px;
+
+  // === color-type ===
+  // default
+  #{set-var(button-background)}: #ffa423;
+  #{set-var(button-color)}: #fff;
+
+  #{set-var(button-background-active)}: color.adjust(#ffa423, $lightness: -10%);
+  #{set-var(button-color-active)}: #fff;
+
+  #{set-var(button-background-hover)}: color.adjust(#ffa423, $lightness: 10%);
+  #{set-var(button-color-hover)}: #fff;
+
+  #{set-var(button-background-disable)}: #ffa423;
+  #{set-var(button-color-disable)}: #fff;
+
+  // primary-button
+  #{set-var(button-primary-background)}: #268fff;
+  #{set-var(button-primary-color)}: #fff;
+
+  #{set-var(button-primary-background-active)}: color.adjust(#268fff, $lightness: -10%);
+  #{set-var(button-primary-color-active)}: #fff;
+
+  #{set-var(button-primary-background-hover)}: color.adjust(#268fff, $lightness: 10%);
+  #{set-var(button-primary-color-hover)}: #fff;
+
+  #{set-var(button-primary-background-disable)}: #ffa423;
+  #{set-var(button-primary-color-disable)}: #fff;
+
+  // primary-button
+  #{set-var(button-warning-background)}: #ff9c07;
+  #{set-var(button-warning-color)}: #fff;
+
+  #{set-var(button-warning-background-active)}: color.adjust(#ff9c07, $lightness: -10%);
+  #{set-var(button-warning-color-active)}: #fff;
+
+  #{set-var(button-warning-background-hover)}: color.adjust(#ff9c07, $lightness: 10%);
+  #{set-var(button-warning-color-hover)}: #fff;
+
+  #{set-var(button-warning-background-disable)}: #ffa423;
+  #{set-var(button-warning-color-disable)}: #fff;
+
+  // primary-button
+  #{set-var(button-danger-background)}: #e00a0a;
+  #{set-var(button-danger-color)}: #fff;
+
+  #{set-var(button-danger-background-active)}: color.adjust(#e00a0a, $lightness: -10%);
+  #{set-var(button-danger-color-active)}: #fff;
+
+  #{set-var(button-danger-background-hover)}: color.adjust(#e00a0a, $lightness: 10%);
+  #{set-var(button-danger-color-hover)}: #fff;
+
+  #{set-var(button-danger-background-disable)}: #ffa423;
+  #{set-var(button-danger-color-disable)}: #fff;
+}
