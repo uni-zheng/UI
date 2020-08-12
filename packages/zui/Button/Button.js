@@ -8,8 +8,9 @@ import { useClassPrefix } from '../tools/uses/useClassPrefix';
 Button.propTypes = {
   classPrefix: PropTypes.string,
   className: PropTypes.string,
-  colorType: PropTypes.oneOf(['primary']),
-  size: PropTypes.oneOf(['small']),
+  variant: PropTypes.oneOf(['contained', 'outline', 'text']),
+  colorType: PropTypes.oneOf(['', 'success', 'warning', 'danger']),
+  size: PropTypes.oneOf(['small', 'middle', 'large']),
   displayType: PropTypes.oneOf(['inline', 'block']),
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
@@ -23,19 +24,18 @@ Button.propTypes = {
   children: PropTypes.any,
 };
 
-Button.DISPLAY_TYPE = {
-  INLINE: 'inline',
-  BLOCK: 'block',
-};
-
-Button.SIZE = {
-  SMALL: 'small',
+Button.defaultProps = {
+  classPrefix: 'zui',
+  displayType: 'inline',
+  variant: 'contained',
+  size: 'middle',
 };
 
 function Button(props) {
   const {
-    classPrefix = 'zui',
+    classPrefix,
     className,
+    variant,
     size,
     disabled,
     displayType,
@@ -62,9 +62,10 @@ function Button(props) {
       className={classNames(
         prefixClass(),
         colorType && prefixClass(`color-${colorType}`),
+        variant && prefixClass(`varient-${variant}`),
         {
-          [prefixClass('block')]: displayType === Button.DISPLAY_TYPE.BLOCK,
-          [prefixClass('size-small')]: size === Button.SIZE.SMALL,
+          [prefixClass('block')]: displayType === 'block',
+          [prefixClass('size-small')]: size === 'small',
           [prefixClass('disabled')]: disabled,
           [prefixClass('loading')]: isLoading,
         },
@@ -103,10 +104,10 @@ function Button(props) {
 
     // 进入 clickOnce 逻辑
     // 检查当前状态
-    if (isClickOnceProcessing) {
-      _.isFunction(clickOnce?.onClickWhenProcessing) && clickOnce.onClickWhenProcessing();
-      return;
-    }
+    // if (isClickOnceProcessing) {
+    //   _.isFunction(clickOnce?.onClickWhenProcessing) && clickOnce.onClickWhenProcessing();
+    //   return;
+    // }
 
     // 获取函数返回值 判断是否为异步函数
     const returnValue = onClick(evt);

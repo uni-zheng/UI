@@ -1,0 +1,5 @@
+@use "global-sass-var";
+
+@function set-var($name) {
+  @return #{global-sass-var.$css-var-prefix}#{$name}
+}

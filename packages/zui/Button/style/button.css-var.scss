@@ -1,0 +1,270 @@
+@use "sass:color";
+@use "../../styles/global.css-var" as global-cv;
+@use "../../styles/css-var.member" as cv;
+@use "../../styles/css-var-type.member" as cvt;
+
+$horizontal-padding: cv.set-var(button-horizontal-padding) 16px;
+$min-width: cv.set-var(button-min-width) 80px;
+$height: cv.set-var(button-height) 34px;
+$border-radius: cv.set-var(button-border-radius) 4px;
+$border-width: cv.set-var(button-border-width) 1px;
+$font-size: cv.set-var(button-font-size) 14px;
+
+$text-min-width: cv.set-var(text-button-min-width) 0;
+
+// contained
+$background: cv.set-var(button-background) #00A6ED;
+$color: cv.set-var(button-color) #fff;
+$background-active: cv.set-var(button-background-active) #0097D8;
+$color-active: cv.set-var(button-color-active) #fff;
+$background-hover: cv.set-var(button-background-hover) #33B2E9;
+$color-hover: cv.set-var(button-color-hover) #fff;
+$background-disable: cv.set-var(button-background-disable) #C5C5C5;
+$color-disable: cv.set-var(button-color-disable) #fff;
+
+$success-background: cv.set-var(button-primary-background) #4ED400;
+$success-color: cv.set-var(button-primary-color) #fff;
+$success-background-active: cv.set-var(button-primary-background-active) color.adjust(#4ED400, $lightness: -10%);
+$success-color-active: cv.set-var(button-primary-color-active) #fff;
+$success-background-hover: cv.set-var(button-primary-background-hover) color.adjust(#4ED400, $lightness: 10%);
+$success-color-hover: cv.set-var(button-primary-color-hover) #fff;
+$success-background-disable: cv.set-var(button-primary-background-disable) #C5C5C5;
+$success-color-disable: cv.set-var(button-primary-color-disable) #fff;
+
+$warning-background: cv.set-var(button-warning-background) #FFB400;
+$warning-color: cv.set-var(button-warning-color) #fff;
+$warning-background-active: cv.set-var(button-warning-background-active) color.adjust(#FFB400, $lightness: -10%);
+$warning-color-active: cv.set-var(button-warning-color-active) #fff;
+$warning-background-hover: cv.set-var(button-warning-background-hover) color.adjust(#FFB400, $lightness: 10%);
+$warning-color-hover: cv.set-var(button-warning-color-hover) #fff;
+$warning-background-disable: cv.set-var(button-warning-background-disable) #C5C5C5;
+$warning-color-disable: cv.set-var(button-warning-color-disable) #fff;
+
+$danger-background: cv.set-var(button-danger-background) #e00a0a;
+$danger-color: cv.set-var(button-danger-color) #fff;
+$danger-background-active: cv.set-var(button-danger-background-active) color.adjust(#e00a0a, $lightness: -10%);
+$danger-color-active: cv.set-var(button-danger-color-active) #fff;
+$danger-background-hover: cv.set-var(button-danger-background-hover) color.adjust(#e00a0a, $lightness: 10%);
+$danger-color-hover: cv.set-var(button-danger-color-hover) #fff;
+$danger-background-disable: cv.set-var(button-danger-background-disable) #ffa423;
+$danger-color-disable: cv.set-var(button-danger-color-disable) #fff;
+
+// outline
+$outline-background: cv.set-var(outline-button-background) transparent;
+$outline-border-color: cv.set-var(outline-button-border-color) #00A6ED;
+$outline-color: cv.set-var(outline-button-color) #00A6ED;
+$outline-background-active: cv.set-var(outline-button-background-active) color.change(#00A6ED, $alpha: 0.2);
+$outline-border-color-active: cv.set-var(outline-button-border-color-active) #00A6ED;
+$outline-color-active: cv.set-var(outline-button-color-active) #00A6ED;
+$outline-background-hover: cv.set-var(outline-button-background-hover) color.change(#00A6ED, $alpha: 0.1);
+$outline-border-color-hover: cv.set-var(outline-button-border-color-hover) #00A6ED;
+$outline-color-hover: cv.set-var(outline-button-color-hover) #00A6ED;
+$outline-background-disable: cv.set-var(outline-button-background-disable) transparent;
+$outline-border-color-disable: cv.set-var(outline-button-border-color-disable) #C5C5C5;
+$outline-color-disable: cv.set-var(outline-button-color-disable) #fff;
+
+$outline-success-background: cv.set-var(outline-button-success-background) transparent;
+$outline-success-border-color: cv.set-var(outline-button-success-border-color) #4ED400;
+$outline-success-color: cv.set-var(outline-button-success-color) #4ED400;
+$outline-success-background-active: cv.set-var(outline-button-success-background-active) color.change(#4ED400, $alpha: 0.2);
+$outline-success-border-color-active: cv.set-var(outline-button-success-border-color-active) #4ED400;
+$outline-success-color-active: cv.set-var(outline-button-success-color-active) #4ED400;
+$outline-success-background-hover: cv.set-var(outline-button-success-background-hover) color.change(#4ED400, $alpha: 0.1);
+$outline-success-border-color-hover: cv.set-var(outline-button-success-border-color-hover) #4ED400;
+$outline-success-color-hover: cv.set-var(outline-button-success-color-hover) #4ED400;
+$outline-success-background-disable: cv.set-var(outline-button-success-background-disable) transparent;
+$outline-success-border-color-disable: cv.set-var(outline-button-success-border-color-disable) #C5C5C5;
+$outline-success-color-disable: cv.set-var(outline-button-success-color-disable) #fff;
+
+$outline-warning-background: cv.set-var(outline-button-warning-background) transparent;
+$outline-warning-border-color: cv.set-var(outline-button-warning-border-color) #FFB400;
+$outline-warning-color: cv.set-var(outline-button-warning-color) #FFB400;
+$outline-warning-background-active: cv.set-var(outline-button-warning-background-active) color.change(#FFB400, $alpha: 0.2);
+$outline-warning-border-color-active: cv.set-var(outline-button-warning-border-color-active) #FFB400;
+$outline-warning-color-active: cv.set-var(outline-button-warning-color-active) #FFB400;
+$outline-warning-background-hover: cv.set-var(outline-button-warning-background-hover) color.change(#FFB400, $alpha: 0.1);
+$outline-warning-border-color-hover: cv.set-var(outline-button-warning-border-color-hover) #FFB400;
+$outline-warning-color-hover: cv.set-var(outline-button-warning-color-hover) #FFB400;
+$outline-warning-background-disable: cv.set-var(outline-button-warning-background-disable) transparent;
+$outline-warning-border-color-disable: cv.set-var(outline-button-warning-border-color-disable) #C5C5C5;
+$outline-warning-color-disable: cv.set-var(outline-button-warning-color-disable) #fff;
+
+$outline-danger-background: cv.set-var(outline-button-danger-background) transparent;
+$outline-danger-border-color: cv.set-var(outline-button-danger-border-color) #e00a0a;
+$outline-danger-color: cv.set-var(outline-button-danger-color) #e00a0a;
+$outline-danger-background-active: cv.set-var(outline-button-danger-background-active) color.change(#e00a0a, $alpha: 0.2);
+$outline-danger-border-color-active: cv.set-var(outline-button-danger-border-color-active) #e00a0a;
+$outline-danger-color-active: cv.set-var(outline-button-danger-color-active) #e00a0a;
+$outline-danger-background-hover: cv.set-var(outline-button-danger-background-hover) color.change(#e00a0a, $alpha: 0.1);
+$outline-danger-border-color-hover: cv.set-var(outline-button-danger-border-color-hover) #e00a0a;
+$outline-danger-color-hover: cv.set-var(outline-button-danger-color-hover) #e00a0a;
+$outline-danger-background-disable: cv.set-var(outline-button-danger-background-disable) transparent;
+$outline-danger-border-color-disable: cv.set-var(outline-button-danger-border-color-disable) #C5C5C5;
+$outline-danger-color-disable: cv.set-var(outline-button-danger-color-disable) #fff;
+
+$text-color: cv.set-var(text-button-color) #00A6ED;
+$text-background-active: cv.set-var(text-button-background-active) color.change(#00A6ED, $alpha: 0.2);
+$text-color-active: cv.set-var(text-button-color-active) #00A6ED;
+$text-background-hover: cv.set-var(text-button-background-hover) color.change(#00A6ED, $alpha: 0.1);
+$text-color-hover: cv.set-var(text-button-color-hover) #00A6ED;
+$text-background-disable: cv.set-var(text-button-background-disable) transparent;
+$text-color-disable: cv.set-var(text-button-color-disable) #fff;
+
+$text-success-color: cv.set-var(text-button-success-color) #4ED400;
+$text-success-background-active: cv.set-var(text-button-success-background-active) color.change(#4ED400, $alpha: 0.2);
+$text-success-color-active: cv.set-var(text-button-success-color-active) #4ED400;
+$text-success-background-hover: cv.set-var(text-button-success-background-hover) color.change(#4ED400, $alpha: 0.1);
+$text-success-color-hover: cv.set-var(text-button-success-color-hover) #4ED400;
+$text-success-background-disable: cv.set-var(text-button-success-background-disable) transparent;
+$text-success-color-disable: cv.set-var(text-button-success-color-disable) #fff;
+
+$text-warning-color: cv.set-var(text-button-warning-color) #FFB400;
+$text-warning-background-active: cv.set-var(text-button-warning-background-active) color.change(#FFB400, $alpha: 0.2);
+$text-warning-color-active: cv.set-var(text-button-warning-color-active) #FFB400;
+$text-warning-background-hover: cv.set-var(text-button-warning-background-hover) color.change(#FFB400, $alpha: 0.1);
+$text-warning-color-hover: cv.set-var(text-button-warning-color-hover) #FFB400;
+$text-warning-background-disable: cv.set-var(text-button-warning-background-disable) transparent;
+$text-warning-color-disable: cv.set-var(text-button-warning-color-disable) #fff;
+
+$text-danger-color: cv.set-var(text-button-danger-color) #e00a0a;
+$text-danger-background-active: cv.set-var(text-button-danger-background-active) color.change(#e00a0a, $alpha: 0.2);
+$text-danger-color-active: cv.set-var(text-button-danger-color-active) #e00a0a;
+$text-danger-background-hover: cv.set-var(text-button-danger-background-hover) color.change(#e00a0a, $alpha: 0.1);
+$text-danger-color-hover: cv.set-var(text-button-danger-color-hover) #e00a0a;
+$text-danger-background-disable: cv.set-var(text-button-danger-background-disable) transparent;
+$text-danger-color-disable: cv.set-var(text-button-danger-color-disable) #fff;
+
+$sibling-gutter: cv.set-var(button-sibling-gutter) 8px;
+
+:root {
+  @include cvt.spread((
+    $horizontal-padding,
+    $min-width,
+    $height,
+    $border-radius,
+    $border-width,
+    $font-size,
+
+    $background,
+    $color,
+    $background-active,
+    $color-active,
+    $background-hover,
+    $color-hover,
+    $background-disable,
+    $color-disable,
+
+    $success-background,
+    $success-color,
+    $success-background-active,
+    $success-color-active,
+    $success-background-hover,
+    $success-color-hover,
+    $success-background-disable,
+    $success-color-disable,
+
+    $warning-background,
+    $warning-color,
+    $warning-background-active,
+    $warning-color-active,
+    $warning-background-hover,
+    $warning-color-hover,
+    $warning-background-disable,
+    $warning-color-disable,
+
+    $danger-background,
+    $danger-color,
+    $danger-background-active,
+    $danger-color-active,
+    $danger-background-hover,
+    $danger-color-hover,
+    $danger-background-disable,
+    $danger-color-disable,
+
+    $outline-background,
+    $outline-border-color,
+    $outline-color,
+    $outline-background-active,
+    $outline-border-color-active,
+    $outline-color-active,
+    $outline-background-hover,
+    $outline-border-color-hover,
+    $outline-color-hover,
+    $outline-background-disable,
+    $outline-border-color-disable,
+    $outline-color-disable,
+
+    $outline-success-background,
+    $outline-success-border-color,
+    $outline-success-color,
+    $outline-success-background-active,
+    $outline-success-border-color-active,
+    $outline-success-color-active,
+    $outline-success-background-hover,
+    $outline-success-border-color-hover,
+    $outline-success-color-hover,
+    $outline-success-background-disable,
+    $outline-success-border-color-disable,
+    $outline-success-color-disable,
+
+    $outline-warning-background,
+    $outline-warning-border-color,
+    $outline-warning-color,
+    $outline-warning-background-active,
+    $outline-warning-border-color-active,
+    $outline-warning-color-active,
+    $outline-warning-background-hover,
+    $outline-warning-border-color-hover,
+    $outline-warning-color-hover,
+    $outline-warning-background-disable,
+    $outline-warning-border-color-disable,
+    $outline-warning-color-disable,
+
+    $outline-danger-background,
+    $outline-danger-border-color,
+    $outline-danger-color,
+    $outline-danger-background-active,
+    $outline-danger-border-color-active,
+    $outline-danger-color-active,
+    $outline-danger-background-hover,
+    $outline-danger-border-color-hover,
+    $outline-danger-color-hover,
+    $outline-danger-background-disable,
+    $outline-danger-border-color-disable,
+    $outline-danger-color-disable,
+
+    $text-color,
+    $text-background-active,
+    $text-color-active,
+    $text-background-hover,
+    $text-color-hover,
+    $text-background-disable,
+    $text-color-disable,
+
+    $text-success-color,
+    $text-success-background-active,
+    $text-success-color-active,
+    $text-success-background-hover,
+    $text-success-color-hover,
+    $text-success-background-disable,
+    $text-success-color-disable,
+
+    $text-warning-color,
+    $text-warning-background-active,
+    $text-warning-color-active,
+    $text-warning-background-hover,
+    $text-warning-color-hover,
+    $text-warning-background-disable,
+    $text-warning-color-disable,
+
+    $text-danger-color,
+    $text-danger-background-active,
+    $text-danger-color-active,
+    $text-danger-background-hover,
+    $text-danger-color-hover,
+    $text-danger-background-disable,
+    $text-danger-color-disable,
+
+    $sibling-gutter,
+  ))
+}

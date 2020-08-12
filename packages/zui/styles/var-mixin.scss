@@ -1,9 +1,0 @@
-@use "variable";
-
-@function set-var($name) {
-  @return #{variable.$css-var-prefix}#{$name}
-}
-
-@function get-var($name) {
-  @return var(#{variable.$css-var-prefix}#{$name})
-}

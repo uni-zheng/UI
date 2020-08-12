@@ -1,0 +1,132 @@
+import { Fragment } from 'react';
+import { Props, Title, Source, DocsPage, Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Button from '../Button.js';
+import {ButtonWithKnobs} from './button.knobs.stories.js';
+import '../style/button.scss';
+
+<Meta
+  title="ZUI/Button"
+  component={Button}
+/>
+
+# Button
+
+展示一个默认的按钮
+
+<Story name="Button">
+  {ButtonWithKnobs}
+</Story>
+
+<Props of={Button} />
+
+按照场景使用不同颜色的按钮
+
+<Preview>
+  <div>
+    <Button>
+      默认
+    </Button>
+    <Button colorType="success">
+      成功
+    </Button>
+    <Button
+      colorType="warning"
+    >
+      提醒
+    </Button>
+    <Button
+      colorType="danger"
+    >
+      危险
+    </Button>
+  </div>
+</Preview>
+
+<Preview>
+  <div>
+    <Button
+      variant="outline"
+    >
+      默认
+    </Button>
+    <Button
+      variant="outline"
+      colorType="success"
+    >
+      成功
+    </Button>
+    <Button
+      variant="outline"
+      colorType="warning"
+    >
+      提醒
+    </Button>
+    <Button
+      variant="outline"
+      colorType="danger"
+    >
+      危险
+    </Button>
+  </div>
+</Preview>
+
+<Preview>
+  <div>
+    <Button
+      variant="text"
+    >
+      默认
+    </Button>
+    <Button
+      variant="text"
+      colorType="success"
+    >
+      成功
+    </Button>
+    <Button
+      variant="text"
+      colorType="warning"
+    >
+      提醒
+    </Button>
+    <Button
+      variant="text"
+      colorType="danger"
+    >
+      危险
+    </Button>
+  </div>
+</Preview>
+
+## 按钮排列
+
+按钮排列要有主次
+
+
+<Preview>
+  <div>
+    <Button
+      variant="outline"
+    >
+      取消
+    </Button>
+    <Button
+    >
+      确认
+    </Button>
+  </div>
+</Preview>
+
+<Preview>
+  <div>
+    <Button
+      variant="text"
+    >
+      取消
+    </Button>
+    <Button
+    >
+      确认
+    </Button>
+  </div>
+</Preview>
