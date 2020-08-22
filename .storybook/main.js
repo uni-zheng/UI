@@ -15,6 +15,17 @@ module.exports = {
   ],
 
   webpackFinal: async (config) => {
+
+    const targetRule = config.module.rules.filter(rule => {
+      return rule.use && rule.use[0] && rule.use[0].loader === 'babel-loader';
+    })[0];
+
+    if (targetRule) {
+      targetRule.exclude.push(
+        path.resolve(__dirname, '../packages/zui/node_modules'),
+      );
+    }
+
     config.module.rules.push({
       test: /\.scss$/,
       use: [

@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { Props, Title, Source, DocsPage, Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import Button from '../Button.js';
 import {ButtonWithKnobs} from './button.knobs.stories.js';
-import '../style/button.scss';
 
 <Meta
   title="ZUI/Button"
@@ -26,18 +25,10 @@ import '../style/button.scss';
     <Button>
       默认
     </Button>
-    <Button colorType="success">
-      成功
-    </Button>
     <Button
-      colorType="warning"
+      colorType="primary"
     >
-      提醒
-    </Button>
-    <Button
-      colorType="danger"
-    >
-      危险
+      主题
     </Button>
   </div>
 </Preview>
@@ -51,21 +42,9 @@ import '../style/button.scss';
     </Button>
     <Button
       variant="outline"
-      colorType="success"
+      colorType="primary"
     >
-      成功
-    </Button>
-    <Button
-      variant="outline"
-      colorType="warning"
-    >
-      提醒
-    </Button>
-    <Button
-      variant="outline"
-      colorType="danger"
-    >
-      危险
+      主题
     </Button>
   </div>
 </Preview>
@@ -79,24 +58,53 @@ import '../style/button.scss';
     </Button>
     <Button
       variant="text"
-      colorType="success"
+      colorType="primary"
     >
-      成功
+      主题
+    </Button>
+  </div>
+</Preview>
+
+
+## 按钮状态
+
+禁用状态
+
+<Preview>
+  <div>
+    <Button
+      disabled
+    >
+      实心
+    </Button>
+    <Button
+      variant="outline"
+      disabled
+    >
+      描边
     </Button>
     <Button
       variant="text"
       colorType="warning"
+      disabled
     >
-      提醒
-    </Button>
-    <Button
-      variant="text"
-      colorType="danger"
-    >
-      危险
+      文字
     </Button>
   </div>
 </Preview>
+
+
+## 改变主题
+
+<Preview>
+  <div>
+    <Button>
+      取消
+    </Button>
+  </div>
+</Preview>
+
+
 
 ## 按钮排列
 

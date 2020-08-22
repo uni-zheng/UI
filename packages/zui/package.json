@@ -1,11 +1,20 @@
 {
   "private": true,
-  "name": "zui",
+  "name": "@uniz/zui",
   "version": "0.0.1",
   "description": "",
   "main": "es/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "uni-zheng"
+  "author": "uni-zheng",
+  "peerDependencies": {
+    "lodash": "^4",
+    "react": "^16.8",
+    "react-dom": "^16.8",
+    "react-jss": "^10"
+  },
+  "dependencies": {
+    "color": "^3.1.2"
+  }
 }

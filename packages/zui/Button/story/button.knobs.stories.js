@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '../Button';
-import '../style/button.scss';
 import { radios } from '@storybook/addon-knobs';
 
 export const ButtonWithKnobs = () => {
