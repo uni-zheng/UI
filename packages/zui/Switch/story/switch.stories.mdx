@@ -1,0 +1,51 @@
+import { Props, Title, Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Switch from '../Switch.js';
+import { SwitchWithKnobs } from './switch.knobs.stories';
+
+<Meta
+  title="ZUI/Switch"
+  component={Switch}
+/>
+
+<Title />
+
+开关组件
+
+<Story name="Switch">
+  {SwitchWithKnobs}
+</Story>
+
+<Props of={Switch} />
+
+#### 默认状态
+
+<Preview>
+  <div>
+    <div>
+      <Switch />
+    </div>
+    <div>
+      <Switch
+        defaultChecked={true}
+      />
+    </div>
+  </div>
+</Preview>
+
+#### 禁用状态
+
+<Preview>
+  <div>
+    <div>
+      <Switch
+        disabled
+      />
+    </div>
+    <div>
+      <Switch
+        disabled
+        defaultChecked={true}
+      />
+    </div>
+  </div>
+</Preview>

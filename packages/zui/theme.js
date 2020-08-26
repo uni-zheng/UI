@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { createTheming } from 'react-jss';
-import { grey, red } from './colors';
+import { grey, lightBlue, red } from './colors';
 
 const defaultTheme = {
   palette: {
@@ -18,6 +18,12 @@ const defaultTheme = {
   textButton: {
     minWidth: 0,
   },
+  switch: {
+    width: 36,
+    height: 24,
+    themeColor: lightBlue[500],
+    controlSize: 20,
+  }
 };
 
 const defaultZuiThemeContext = createContext(defaultTheme);
