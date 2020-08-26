@@ -37,10 +37,6 @@ function Button(props) {
 
   const theme = useZuiTheme();
 
-  console.group('★★★ theme ★★★');
-  console.log(theme);
-  console.groupEnd();
-
   const classes = useButtonStyles(theme);
 
   const [clickCount, setClickCount] = useState(0);
@@ -51,8 +47,8 @@ function Button(props) {
         classes.root,
         variant && [classes[`variant-${variant}`]],
         colorType && [classes[`color-type-${colorType}`]],
-        className,
         disabled && classes.disabled,
+        className,
       )}
       onClick={onClickClient}
       disabled={disabled}

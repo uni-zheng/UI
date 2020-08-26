@@ -5,7 +5,7 @@ import { radios } from '@storybook/addon-knobs';
 export const ButtonWithKnobs = () => {
 
   const colorType = radios(
-    'color-type=',
+    'colorType=',
     {
       '(empty)': undefined,
       success: 'success',

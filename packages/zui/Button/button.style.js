@@ -2,8 +2,6 @@ import { createUseStyles } from 'react-jss';
 import color from 'color';
 import { defaultZuiThemeContext } from '../theme';
 
-window.color = color;
-
 const useButtonStyles = createUseStyles({
   root: {
     position: 'relative',

@@ -9,8 +9,8 @@ const defaultTheme = {
   button: {
     horizontalPadding: 16,
     minWidth: 80,
-    height: 34,
-    borderRadius: 12,
+    height: 32,
+    borderRadius: 8,
     borderWidth: 1,
     fontSize: 14,
     themeColor: grey[500],
