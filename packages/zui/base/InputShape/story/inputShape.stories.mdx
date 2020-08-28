@@ -1,0 +1,25 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import InputShape from '../InputShape';
+
+<Meta
+  title="ZUI/Base/InputShape"
+  component={InputShape}
+/>
+
+<Props
+  of={InputShape}
+/>
+
+<Preview>
+  <Story name="InputShape">
+    <InputShape />
+  </Story>
+</Preview>
+
+<Preview>
+  <InputShape
+    suffix={[
+      <span>$</span>
+    ]}
+  />
+</Preview>
