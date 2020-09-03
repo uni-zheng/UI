@@ -1,0 +1,14 @@
+import { Props, Title, Source, DocsPage, Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Icon from '../Icon';
+import { IconWidthKnobs } from './icon.knobs.stories';
+
+<Meta
+  title="ZUI/Icon"
+  component={Icon}
+/>
+
+<Props of={Icon} />
+
+<Story name="Icon">
+  {IconWidthKnobs}
+</Story>
