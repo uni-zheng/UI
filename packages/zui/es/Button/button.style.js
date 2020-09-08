@@ -21,10 +21,17 @@ const useButtonStyles = createUseStyles({
     backgroundColor: 'transparent',
     fontFamily: '-apple-system',
 
+    '&$full-width': {
+      display: 'flex',
+      width: '100%',
+    },
+
     '& + &': {
       marginLeft: 8,
     },
   },
+
+  'full-width': {},
 
   mask: {
     position: 'absolute',
@@ -79,7 +86,7 @@ const useButtonStyles = createUseStyles({
     },
 
     '&$color-type-primary': {
-      backgroundColor: theme => theme.palette.danger,
+      backgroundColor: theme => theme.palette.primary,
     },
   },
 
@@ -126,13 +133,13 @@ const useButtonStyles = createUseStyles({
 
     '&$color-type-primary': {
       '&:before': {
-        backgroundColor: theme => theme.palette.danger,
+        backgroundColor: theme => theme.palette.primary,
       },
       '&:after': {
-        borderColor: theme => theme.palette.danger,
+        borderColor: theme => theme.palette.primary,
       },
       '& $content': {
-        color: theme => theme.palette.danger,
+        color: theme => theme.palette.primary,
       },
     },
 
@@ -175,13 +182,13 @@ const useButtonStyles = createUseStyles({
 
     '&$color-type-primary': {
       '&:before': {
-        backgroundColor: theme => theme.palette.danger,
+        backgroundColor: theme => theme.palette.primary,
       },
       '&:after': {
-        borderColor: theme => theme.palette.danger,
+        borderColor: theme => theme.palette.primary,
       },
       '& $content': {
-        color: theme => theme.palette.danger,
+        color: theme => theme.palette.primary,
       },
     },
 

@@ -10,7 +10,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['contained', 'outline', 'text']),
   colorType: PropTypes.oneOf(['default', 'primary']),
   size: PropTypes.oneOf(['small', 'middle', 'large']),
-  displayType: PropTypes.oneOf(['inline', 'block']),
+  fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.any,
@@ -20,7 +20,7 @@ Button.defaultProps = {
   variant: 'contained',
   colorType: 'default',
   size: 'middle',
-  displayType: 'inline',
+  fullWidth: false,
 };
 
 function Button(props) {
@@ -29,7 +29,7 @@ function Button(props) {
     variant,
     size,
     disabled,
-    displayType,
+    fullWidth,
     colorType,
     onClick,
     children,
@@ -48,6 +48,9 @@ function Button(props) {
         variant && [classes[`variant-${variant}`]],
         colorType && [classes[`color-type-${colorType}`]],
         disabled && classes.disabled,
+        {
+          [classes['full-width']]: fullWidth,
+        },
         className,
       )}
       onClick={onClickClient}

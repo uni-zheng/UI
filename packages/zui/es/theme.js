@@ -4,6 +4,7 @@ import { grey, lightBlue, red } from './colors';
 
 const defaultTheme = {
   palette: {
+    primary: lightBlue[500],
     danger: red[500],
   },
   button: {

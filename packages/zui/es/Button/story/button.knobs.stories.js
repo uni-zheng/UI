@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button';
-import { radios } from '@storybook/addon-knobs';
+import { boolean, radios } from '@storybook/addon-knobs';
 
 export const ButtonWithKnobs = () => {
 
@@ -24,20 +24,16 @@ export const ButtonWithKnobs = () => {
     undefined,
   )
 
-  const displayType = radios(
-    'displayType=',
-    {
-      inline: 'inline',
-      block: 'block'
-    },
-    'inline',
+  const fullWidth = boolean(
+    'fullWidth=',
+    false,
   )
 
   return (
     <Button
       colorType={colorType}
       size={size}
-      displayType={displayType}
+      fullWidth={fullWidth}
     >
       按钮
     </Button>
