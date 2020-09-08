@@ -6,9 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:prod": "gulp --env.build=prod",
-    "build:prod": "gulp build --env.build=prod"
+    "build:prod": "gulp build --env.build=prod",
+    "prepublish": "npm run build:prod"
   },
   "author": "uni-zheng",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
   "peerDependencies": {
     "lodash": "^4",
     "react": "^16.8",

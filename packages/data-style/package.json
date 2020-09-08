@@ -1,15 +1,18 @@
 {
-  "private": true,
   "name": "@uniz/data-style",
   "version": "0.0.1",
   "description": "",
   "main": "scss/index.scss",
   "scripts": {
     "start:prod": "gulp --env.build=prod",
-    "build:prod": "gulp build --env.build=prod"
+    "build:prod": "gulp build --env.build=prod",
+    "prepublish": "npm run build:prod"
   },
   "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
   "dependencies": {
     "moment": "^2.24.0"
   },
