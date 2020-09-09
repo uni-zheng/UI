@@ -65,7 +65,7 @@ function Switch(props) {
     setValueIfUncontrolled(evt.target.checked);
 
     if (onChange) {
-      onChange(evt);
+      onChange(evt.target.checked, evt);
     }
   }
 }

@@ -24,6 +24,7 @@ async function build() {
     external: [
       'lodash',
       'react',
+      'react-is',
       'prop-types',
     ],
     plugins: [
@@ -31,7 +32,9 @@ async function build() {
         exclude: '**/node_modules/**',
       }),
       nodeResolve(),
-      commonjs(),
+      commonjs({
+        transformMixedEsModules: true,
+      }),
     ],
   });
 
@@ -40,6 +43,16 @@ async function build() {
     format: 'umd',
     name: 'Zui', // 设置名字
     exports: 'named',
+    globals: {
+      lodash: '_',
+      react: 'React',
+      'prop-types': 'PropTypes',
+    },
+  });
+
+  await bundle.write({
+    file: './dist/index.esm.js',
+    format: 'esm',
     globals: {
       lodash: '_',
       react: 'React',

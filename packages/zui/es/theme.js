@@ -22,7 +22,7 @@ const defaultTheme = {
   switch: {
     width: 36,
     height: 24,
-    themeColor: lightBlue[500],
+    uncheckedBackgroundColor: grey[500],
     controlSize: 20,
   }
 };

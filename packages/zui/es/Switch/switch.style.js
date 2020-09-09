@@ -1,5 +1,4 @@
 import { createUseStyles } from 'react-jss';
-import { grey } from '../colors';
 import color from 'color';
 
 const useSwitchStyles = createUseStyles({
@@ -9,7 +8,7 @@ const useSwitchStyles = createUseStyles({
     width: theme => theme.switch.width,
     height: theme => theme.switch.height,
     borderRadius: theme => (theme.switch.height / 2),
-    background: grey[500],
+    background: theme => theme.switch.uncheckedBackgroundColor,
     transition: [{
       property: 'background',
       duration: 0.3,
@@ -19,14 +18,14 @@ const useSwitchStyles = createUseStyles({
     }],
 
     '&:focus-within': {
-      boxShadow: [0, 0, 8, grey[500]],
+      boxShadow: theme => `0 0 8px ${theme.switch.uncheckedBackgroundColor}`,
     },
 
     '&$on': {
-      background: theme => theme.switch.themeColor,
+      background: theme => theme.palette.primary,
 
       '&:focus-within': {
-        boxShadow: theme => `0 0 8px ${theme.switch.themeColor}`,
+        boxShadow: theme => `0 0 8px ${theme.palette.primary}`,
       },
     },
 
