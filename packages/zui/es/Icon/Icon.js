@@ -26,7 +26,7 @@ function Icon(props) {
   const theme = useZuiTheme();
   const classes = useIconStyles(theme);
 
-  const __html = svg
+  const __html = svg;
   const [useTransition, setTransitionStatus] = useState(false);
 
   useEffect(() => {
@@ -42,7 +42,8 @@ function Icon(props) {
         className,
       )}
       style={{
-        fontSize: `${size}px`,
+        height: size,
+        fontSize: size,
       }}
     >
       <svg

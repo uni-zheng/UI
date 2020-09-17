@@ -2,6 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 const useIconStyles = createUseStyles({
   root: {
+    display: 'inline-flex',
     fontSize: 14,
     lineHeight: 1,
   },
