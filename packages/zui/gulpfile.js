@@ -8,7 +8,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const del = require('del');
 
 function clean() {
-  return del(['dist/*', '!dist/node_modules']);
+  return del(['dist/*']);
 }
 
 function copyPublic() {
