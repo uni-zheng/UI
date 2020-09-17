@@ -72,7 +72,15 @@ const useButtonStyles = createUseStyles({
     },
 
     '&:focus': {
-      // todo
+      // TODO  等待 :focus-visible 伪类
+      // boxShadow: theme => {
+      //   const colorString = (
+      //     color(theme.button.themeColor)
+      //     .alpha(0.8)
+      //     .toString()
+      //   );
+      //   return `0 0 8px ${colorString}`;
+      // },
     },
 
     '&&:active': {

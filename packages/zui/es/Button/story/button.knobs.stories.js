@@ -4,33 +4,41 @@ import { boolean, radios } from '@storybook/addon-knobs';
 
 export const ButtonWithKnobs = () => {
 
+  const variant = radios(
+    'variant=',
+    {
+      contained: 'contained',
+      outline: 'outline',
+      text: 'text',
+    },
+    'contained',
+  );
+
   const colorType = radios(
     'colorType=',
     {
-      '(empty)': undefined,
-      success: 'success',
-      warning: 'warning',
-      danger: 'danger',
+      default: 'default',
+      primary: 'primary',
     },
-    undefined,
+    'default',
   );
 
   const size = radios(
     'size=',
     {
-      '(empty)': undefined,
-      small: 'small'
+      small: 'small',
     },
-    undefined,
-  )
+    'small',
+  );
 
   const fullWidth = boolean(
     'fullWidth=',
     false,
-  )
+  );
 
   return (
     <Button
+      variant={variant}
       colorType={colorType}
       size={size}
       fullWidth={fullWidth}
