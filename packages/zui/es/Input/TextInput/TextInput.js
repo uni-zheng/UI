@@ -52,7 +52,7 @@ function TextInput(props) {
     setValueIfUncontrolled(evt.target.value);
 
     if (onChange) {
-      onChange(evt);
+      onChange(evt.target.value, evt);
     }
   }
 }
